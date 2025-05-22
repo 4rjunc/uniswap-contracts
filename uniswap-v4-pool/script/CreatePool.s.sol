@@ -1,4 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
+
+// TODO:
+// Initail price : 0.000000005
+// ETH: 1
+// TOKEN: 199983281.538522001173297625
+// I assume that the token 1999 is not something I decide and send it over to uniswap. Im giving approval of 
+// max number of tokens to Uniswap v4 IAllowanceTransfer. So, IAllowanceTransfer will take the required amount of tokens from contract 
+// since max number of token is approved to it 
+
 pragma solidity 0.8.26;
 
 import {Script} from "forge-std/Script.sol";
@@ -45,8 +54,8 @@ contract CreatePool is Script {
         uint24 swapFee = 4000; // 0.40%
         int24 tickSpacing = 10; // tickSpacing is the granularity of the pool. Lower values are more precise but may be more expensive to trade on
 
-        uint256 token0Amount = 1e15;
-        uint256 token1Amount = 2_000_000e18;
+        uint256 token0Amount = 1 ether;
+        uint256 token1Amount = 200_000_000e18;
 
         // PoolKey memory pool = PoolKey({
         //   currency0: Currency.wrap(address(0)), // ETH
